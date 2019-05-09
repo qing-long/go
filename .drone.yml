@@ -1,0 +1,32 @@
+kind: pipeline
+name: go-docs
+
+steps:
+- name: publish
+  image: plugins/docker:latest
+  settings:
+    auto_tag: true
+    username:
+      from_secret: u
+    password:
+      from_secret: p
+    repo: buglan/go-docs
+
+- name: deploy
+  image: appleboy/drone-ssh
+  pull: true
+  settings:
+    host: buglan.org
+    port: 28379
+    user: root
+    key:
+      from_secret: k
+    script:
+    - docker pull buglan/go-docs:latest
+    - docker rm -f go-docs
+    - docker run --name=go-docs -p 4001:4001 -d buglan/go-docs
+
+- name: notify
+  image: plugins/gitter
+  settings:
+    webhook: https://webhooks.gitter.im/e/bf9402f8c689cffaf87c<Paste>
