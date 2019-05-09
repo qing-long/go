@@ -39,3 +39,6 @@ yarn-error.log*
 
 # log files
 storage
+
+# gitbook
+_book
