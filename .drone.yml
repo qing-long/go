@@ -11,6 +11,10 @@ steps:
     password:
       from_secret: p
     repo: buglan/go-docs
+    when:
+      branch:
+        include:
+          release
 
 - name: deploy
   image: appleboy/drone-ssh
@@ -21,6 +25,12 @@ steps:
     user: root
     key:
       from_secret: k
+  when:
+      branch:
+        include:
+          release
+      event:
+        publish
     script:
     - docker pull buglan/go-docs:latest
     - docker rm -f go-docs
@@ -28,6 +38,13 @@ steps:
 
 - name: notify
   image: plugins/gitter
+  when:
+      branch:
+        include:
+          release
+      event:
+        publish
+        deploy
   settings:
     webhook: https://webhooks.gitter.im/e/bf9402f8c689cffaf87c<Paste>
 
