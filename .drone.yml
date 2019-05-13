@@ -30,7 +30,8 @@ steps:
         include:
           release
       event:
-        publish
+        include:
+          publish
     script:
     - docker pull buglan/go-docs:latest
     - docker rm -f go-docs
@@ -43,8 +44,9 @@ steps:
         include:
           release
       event:
-        publish
-        deploy
+        include:
+          publish
+          deploy
   settings:
     webhook: https://webhooks.gitter.im/e/bf9402f8c689cffaf87c<Paste>
 
