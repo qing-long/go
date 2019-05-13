@@ -27,8 +27,6 @@ steps:
   when:
       branch:
         - release
-      event:
-        - publish
     script:
     - docker pull buglan/go-docs:latest
     - docker rm -f go-docs
@@ -39,12 +37,5 @@ steps:
   when:
       branch:
         - release
-      event:
-        - publish
-        - deploy
   settings:
-    webhook: https://webhooks.gitter.im/e/bf9402f8c689cffaf87c<Paste>
-
-branches:
-  include: [ release ]
-
+    webhook: https://webhooks.gitter.im/e/bf9402f8c689cffaf87c<Paste>t
