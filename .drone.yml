@@ -30,3 +30,6 @@ steps:
   image: plugins/gitter
   settings:
     webhook: https://webhooks.gitter.im/e/bf9402f8c689cffaf87c<Paste>
+
+branches:
+  include: [ release ]
