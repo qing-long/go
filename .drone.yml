@@ -14,7 +14,7 @@ steps:
     when:
       branch:
         include:
-          release
+          - release
 
 - name: deploy
   image: appleboy/drone-ssh
@@ -28,10 +28,10 @@ steps:
   when:
       branch:
         include:
-          release
+          - release
       event:
         include:
-          publish
+          - publish
     script:
     - docker pull buglan/go-docs:latest
     - docker rm -f go-docs
@@ -42,11 +42,11 @@ steps:
   when:
       branch:
         include:
-          release
+          - release
       event:
         include:
-          publish
-          deploy
+          - publish
+          - deploy
   settings:
     webhook: https://webhooks.gitter.im/e/bf9402f8c689cffaf87c<Paste>
 
