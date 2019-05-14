@@ -24,7 +24,7 @@ steps:
     script:
     - docker pull buglan/go-docs:latest
     - docker rm -f go-docs
-    - docker run --name=go-docs -p 4001:4001 -d buglan/go-docs
+    - docker run --name=go-docs -p 4002:4002 -d buglan/go-docs
 
 - name: notify
   image: plugins/gitter
