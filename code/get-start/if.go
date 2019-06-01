@@ -2,8 +2,7 @@ package get_start
 
 import "fmt"
 
-func If() {
-	a := 1
+func If(a int) {
 	if a > 1{
 		fmt.Println("some")
 	} else if a < 0 {
