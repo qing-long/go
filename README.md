@@ -10,7 +10,7 @@
 - [ ] 错误处理
 - [ ] 设计模式
 - [ ] go 标准库
-- [ ] pre commit hook
+- [x] pre commit hook
 - [ ] gin
 	- [x] gin project structure
 	- [x] gin hello world
