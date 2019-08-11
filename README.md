@@ -15,6 +15,7 @@
 	- [x] gin project structure
 	- [x] gin hello world
 	- [x] gin || golang dockerfile
+	- [x] gin hot start
 	- [ ] argument parse
 
 
@@ -32,4 +33,16 @@
   rev: v0.7.1
   hooks:
     - id: trailing-whitespace
+```
+
+- gin hot start
+
+> 使用`fresh`热启动
+
+```bash
+go get github.com/pilu/fresh
+```
+
+```bash
+fresh
 ```
