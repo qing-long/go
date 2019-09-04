@@ -17,7 +17,11 @@
 	- [x] gin || golang dockerfile
 	- [x] gin hot start
 	- [x] argument parse
-
+- [ ] go crountine
+- [ ] redis
+- [ ] mysql
+- [ ] rabbitmq
+- [ ] cronjob
 
 - pre commit hook
 
