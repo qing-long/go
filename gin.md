@@ -73,8 +73,45 @@ RUN chmod a+x ./app
 EXPOSE 8080
 
 CMD ["./app"]
+```
 
 
+- gin argument parse
 
+`getQuery`
+
+```golang
+func (Friend) GetNewFriends(ctx *gin.Context) {
+	wxid, ok := ctx.GetQuery("wxid")
+	if !ok {
+		helper.RespFail(-1, "wxid 是必须的参数", http.StatusBadRequest)
+		return
+	}
+
+	records, err := ninth_studio.GetNewFriendRecords(wxid)
+	if err != nil && err != gorm.ErrRecordNotFound {
+		log.Error().Err(err).Msgf("GetNewFriends GetNewFriendRecords fail wxid %v ", wxid)
+		helper.RespFail(-1, "记录未找到", http.StatusNotFound)
+		return
+	}
+
+	data := weffect_service.FormatNewFriends(records)
+	helper.RespSuccess(data, "OK")
+	return
+}
+```
+
+`ShouldBind`
+
+```golang
+func GetUserInfo(ctx *gin.Context) {
+	var param weffect_service.UserParam
+
+	err := ctx.ShouldBind(&param)
+	if err != nil {
+		log.Error().Err(err).Msgf("GetUserInfo ShouldBind fail")
+		helper.RespFail(-1, "fail", 400)
+		return
+	}
 ```
 

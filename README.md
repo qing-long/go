@@ -16,7 +16,7 @@
 	- [x] gin hello world
 	- [x] gin || golang dockerfile
 	- [x] gin hot start
-	- [ ] argument parse
+	- [x] argument parse
 
 
 - pre commit hook
@@ -40,9 +40,15 @@
 > 使用`fresh`热启动
 
 ```bash
-go get github.com/pilu/fresh
+go get github.com/BUGLAN/fresh
 ```
 
 ```bash
 fresh
+```
+
+> fork 版本的fresh 支持 参数
+
+```bash
+fresh web
 ```
