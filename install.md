@@ -2,7 +2,6 @@
 
 ![5c986fcb1f09a](assets/5c986fcb1f09a.png)
 
-## 环境
 
 - mac os 上安装go
 
@@ -34,11 +33,4 @@ go mod init package-name
 # 下载依赖
 go mod download
 ```
-
-## 类型
-
-## 语法
-
-## 进阶
-
 
